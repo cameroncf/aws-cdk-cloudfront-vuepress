@@ -35,7 +35,7 @@ export class S3Configuration extends Construct {
         : [Source.asset("www/.vuepress/dist")];
 
     /**
-     *  DEPLOY THE WEBSITE CONTENT TO THE BUCKET
+     *  DEPLOY!
      *
      *  This CDK construct zips up the static site content in "sources"
      *  and deploys it to the bucket created in the steps above.

@@ -3,6 +3,7 @@ import {
   CacheCookieBehavior,
   CachePolicy,
   Distribution,
+  ViewerProtocolPolicy,
 } from "aws-cdk-lib/lib/aws-cloudfront";
 import { S3Origin } from "aws-cdk-lib/lib/aws-cloudfront-origins";
 import { Bucket } from "aws-cdk-lib/lib/aws-s3";
@@ -24,7 +25,11 @@ export class CloudFrontConfiguration extends Construct {
     });
 
     new Distribution(this, "CF", {
-      defaultBehavior: { origin: new S3Origin(bucket), cachePolicy },
+      defaultBehavior: {
+        origin: new S3Origin(bucket),
+        cachePolicy,
+        viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+      },
     });
   }
 }

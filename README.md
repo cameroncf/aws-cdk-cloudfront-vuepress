@@ -54,3 +54,11 @@ cdk bootstrap aws://928423398579/us-east-1
 
 ## How to configure Github for 
 
+- AWS keys
+- CDK specific keys
+
+## first deploy
+
+take a little while
+any changes to cloudfront config will take time
+luckjily, routine changes only change the S3 bucket so they are faster!
