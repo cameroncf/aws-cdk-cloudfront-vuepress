@@ -7,5 +7,6 @@ export class HostingStack extends Stack {
     super(scope, id);
 
     const { bucket } = new S3Bucket(this, "Bucket");
+    //
   }
 }
