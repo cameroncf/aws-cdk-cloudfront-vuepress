@@ -46,3 +46,7 @@ jobs:
         run: yarn cdk deploy
         env:
           NODE_OPTIONS: --unhandled-rejections=strict
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          CDK_DEPLOY_ACCOUNT: ${{ secrets.CDK_DEPLOY_ACCOUNT }}
+          CDK_DEPLOY_REGION: ${{ secrets.CDK_DEPLOY_REGION }}
