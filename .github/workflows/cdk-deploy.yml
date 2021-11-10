@@ -38,11 +38,11 @@ jobs:
         run: yarn test
 
       - name: Synth
-        run: yarn cdk synth'
+        run: yarn cdk synth
         env:
           NODE_OPTIONS: --unhandled-rejections=strict
 
       - name: Deploy
-        run: yarn cdk deploy'
+        run: yarn cdk deploy
         env:
           NODE_OPTIONS: --unhandled-rejections=strict
