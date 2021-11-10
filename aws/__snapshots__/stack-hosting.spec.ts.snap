@@ -1,3 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`happy path 1`] = `Object {}`;
+exports[`happy path 1`] = `
+Object {
+  "Resources": Object {
+    "BucketWebsiteC12D4D29": Object {
+      "DeletionPolicy": "Retain",
+      "Type": "AWS::S3::Bucket",
+      "UpdateReplacePolicy": "Retain",
+    },
+  },
+}
+`;
