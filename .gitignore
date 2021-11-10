@@ -5,6 +5,10 @@
 node_modules
 dist
 
+# VuePress 2 said to ignore these
+.temp
+.cache
+
 # CDK synth directory
 cdk.out
 

@@ -2,9 +2,14 @@
   "name": "awscdkcloudfrontvuepress",
   "version": "0.0.1",
   "scripts": {
-    "build": "tsc",
+    "aws:build": "tsc",
+    "aws:clean": "rm -rf dist && rm -rf cdk.out",
+    "www:build": "vuepress build www",
+    "www:clean": "rm -rf www/.vuepress/dist",
+    "www:dev": "vuepress dev www",
     "cdk": "cdk",
-    "clean": "rm -rf dist && rm -rf cdk.out",
+    "build": "yarn aws:build && yarn aws:build",
+    "clean": "yarn aws:clean && yarn aws:clean",
     "dry-run": "yarn clean && yarn build && yarn test && yarn cdk synth -q",
     "test": "jest"
   },
@@ -22,7 +27,8 @@
     "jest": "^26.4.2",
     "ts-jest": "^26.2.0",
     "ts-node": "^9.0.0",
-    "typescript": "~3.9.7"
+    "typescript": "~3.9.7",
+    "vuepress": "^2.0.0-beta.27"
   },
   "dependencies": {
     "@aws-cdk/assert": "2.0.0-rc.27",
