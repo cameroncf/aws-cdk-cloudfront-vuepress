@@ -37,6 +37,45 @@ Object {
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
+    "BucketWebsitePolicyEDC9CB87": Object {
+      "Properties": Object {
+        "Bucket": Object {
+          "Ref": "BucketWebsiteC12D4D29",
+        },
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "s3:GetObject",
+              "Effect": "Allow",
+              "Principal": Object {
+                "CanonicalUser": Object {
+                  "Fn::GetAtt": Array [
+                    "DistCFOrigin1S3Origin2E12B833",
+                    "S3CanonicalUserId",
+                  ],
+                },
+              },
+              "Resource": Object {
+                "Fn::Join": Array [
+                  "",
+                  Array [
+                    Object {
+                      "Fn::GetAtt": Array [
+                        "BucketWebsiteC12D4D29",
+                        "Arn",
+                      ],
+                    },
+                    "/*",
+                  ],
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::S3::BucketPolicy",
+    },
     "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536": Object {
       "DependsOn": Array [
         "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF",
@@ -143,6 +182,54 @@ Object {
         ],
       },
       "Type": "AWS::IAM::Policy",
+    },
+    "DistCF1927D299": Object {
+      "Properties": Object {
+        "DistributionConfig": Object {
+          "DefaultCacheBehavior": Object {
+            "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+            "Compress": true,
+            "TargetOriginId": "TestDistCFOrigin1DE02ACBE",
+            "ViewerProtocolPolicy": "allow-all",
+          },
+          "Enabled": true,
+          "HttpVersion": "http2",
+          "IPV6Enabled": true,
+          "Origins": Array [
+            Object {
+              "DomainName": Object {
+                "Fn::GetAtt": Array [
+                  "BucketWebsiteC12D4D29",
+                  "RegionalDomainName",
+                ],
+              },
+              "Id": "TestDistCFOrigin1DE02ACBE",
+              "S3OriginConfig": Object {
+                "OriginAccessIdentity": Object {
+                  "Fn::Join": Array [
+                    "",
+                    Array [
+                      "origin-access-identity/cloudfront/",
+                      Object {
+                        "Ref": "DistCFOrigin1S3Origin2E12B833",
+                      },
+                    ],
+                  ],
+                },
+              },
+            },
+          ],
+        },
+      },
+      "Type": "AWS::CloudFront::Distribution",
+    },
+    "DistCFOrigin1S3Origin2E12B833": Object {
+      "Properties": Object {
+        "CloudFrontOriginAccessIdentityConfig": Object {
+          "Comment": "Identity for TestDistCFOrigin1DE02ACBE",
+        },
+      },
+      "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
     },
   },
 }
