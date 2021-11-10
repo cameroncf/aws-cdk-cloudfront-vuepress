@@ -187,7 +187,9 @@ Object {
       "Properties": Object {
         "DistributionConfig": Object {
           "DefaultCacheBehavior": Object {
-            "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+            "CachePolicyId": Object {
+              "Ref": "DistPolicyAD75CEA9",
+            },
             "Compress": true,
             "TargetOriginId": "TestDistCFOrigin1DE02ACBE",
             "ViewerProtocolPolicy": "allow-all",
@@ -230,6 +232,30 @@ Object {
         },
       },
       "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+    },
+    "DistPolicyAD75CEA9": Object {
+      "Properties": Object {
+        "CachePolicyConfig": Object {
+          "DefaultTTL": 60,
+          "MaxTTL": 86400,
+          "MinTTL": 60,
+          "Name": "TestDistPolicy0EF24E5A-bar",
+          "ParametersInCacheKeyAndForwardedToOrigin": Object {
+            "CookiesConfig": Object {
+              "CookieBehavior": "none",
+            },
+            "EnableAcceptEncodingBrotli": true,
+            "EnableAcceptEncodingGzip": true,
+            "HeadersConfig": Object {
+              "HeaderBehavior": "none",
+            },
+            "QueryStringsConfig": Object {
+              "QueryStringBehavior": "none",
+            },
+          },
+        },
+      },
+      "Type": "AWS::CloudFront::CachePolicy",
     },
   },
 }
