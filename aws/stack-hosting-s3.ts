@@ -10,9 +10,15 @@ export class S3Bucket extends Construct {
 
     this.bucket = new Bucket(this, "Website", { publicReadAccess: false });
 
+    // since this changes a lot, mock it in tests
+    const sources =
+      process.env.NODE_ENV === "test"
+        ? []
+        : [Source.asset("www/.vuepress/dist")];
+
     new BucketDeployment(this, "Deployment", {
       destinationBucket: this.bucket,
-      sources: [Source.asset("www/.vuepress/dist")],
+      sources,
     });
   }
 }

@@ -8,8 +8,8 @@
     "www:clean": "rm -rf www/.vuepress/dist",
     "www:dev": "vuepress dev www",
     "cdk": "cdk",
-    "build": "yarn aws:build && yarn aws:build",
-    "clean": "yarn aws:clean && yarn aws:clean",
+    "build": "yarn www:build && yarn aws:build",
+    "clean": "yarn www:clean && yarn aws:clean",
     "dry-run": "yarn clean && yarn build && yarn test && yarn cdk synth -q",
     "test": "jest"
   },

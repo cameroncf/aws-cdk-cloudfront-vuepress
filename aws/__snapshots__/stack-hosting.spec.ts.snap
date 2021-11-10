@@ -26,12 +26,8 @@ Object {
             "Arn",
           ],
         },
-        "SourceBucketNames": Array [
-          "cdk-hnb659fds-assets-foo-bar",
-        ],
-        "SourceObjectKeys": Array [
-          "e514e5926988a08336d270dd51cdfe478ce6e6b2a114af8c5511fc2f1faec789.zip",
-        ],
+        "SourceBucketNames": Array [],
+        "SourceObjectKeys": Array [],
       },
       "Type": "Custom::CDKBucketDeployment",
       "UpdateReplacePolicy": "Delete",
@@ -103,40 +99,6 @@ Object {
       "Properties": Object {
         "PolicyDocument": Object {
           "Statement": Array [
-            Object {
-              "Action": Array [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*",
-              ],
-              "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":s3:::cdk-hnb659fds-assets-foo-bar",
-                    ],
-                  ],
-                },
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":s3:::cdk-hnb659fds-assets-foo-bar/*",
-                    ],
-                  ],
-                },
-              ],
-            },
             Object {
               "Action": Array [
                 "s3:GetObject*",
