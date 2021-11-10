@@ -1,0 +1,12 @@
+# js stuff
+*.js
+!jest.config.js
+*.d.ts
+node_modules
+dist
+
+# CDK synth directory
+cdk.out
+
+# system files
+.DS_Store

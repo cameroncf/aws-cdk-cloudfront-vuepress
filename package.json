@@ -1,0 +1,32 @@
+{
+  "name": "awscdkcloudfrontvuepress",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "tsc",
+    "cdk": "cdk",
+    "clean": "rm -rf dist && rm -rf cdk.out",
+    "dry-run": "yarn clean && yarn build && yarn test && yarn cdk synth -q",
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "aws-cdk-lib": "2.0.0-rc.27",
+    "constructs": "^10.0.0"
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "2.0.0-rc.27",
+    "@types/jest": "^26.0.10",
+    "@types/node": "10.17.27",
+    "aws-cdk": "2.0.0-rc.27",
+    "aws-cdk-lib": "2.0.0-rc.27",
+    "constructs": "^10.0.0",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.2.0",
+    "ts-node": "^9.0.0",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "@aws-cdk/assert": "2.0.0-rc.27",
+    "cognito-at-edge": "^1.1.0",
+    "constructs": "^10.0.0"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "editor.formatOnSave": false,
+  // Enable per-language
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "[yaml]": {
+    "editor.formatOnSave": true
+  },
+  "editor.tabSize": 2
+}
